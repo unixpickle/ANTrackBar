@@ -13,6 +13,7 @@
 		FA53032914FDA78E008C70A9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FA53032714FDA78E008C70A9 /* Credits.rtf */; };
 		FA53032C14FDA78E008C70A9 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53032B14FDA78E008C70A9 /* ANAppDelegate.m */; };
 		FA53032F14FDA78E008C70A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA53032D14FDA78E008C70A9 /* MainMenu.xib */; };
+		FA53033714FDA7CD008C70A9 /* ANTrackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53033614FDA7CD008C70A9 /* ANTrackBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +22,16 @@
 		FA53031B14FDA78D008C70A9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FA53031C14FDA78D008C70A9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FA53031D14FDA78D008C70A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FA53032014FDA78D008C70A9 /* TrackBar-Info.plist */ = {isa = PBXFileReference; path = "TrackBar-Info.plist"; sourceTree = "<group>"; };
+		FA53032014FDA78D008C70A9 /* TrackBar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrackBar-Info.plist"; sourceTree = "<group>"; };
 		FA53032214FDA78E008C70A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA53032414FDA78E008C70A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FA53032614FDA78E008C70A9 /* TrackBar-Prefix.pch */ = {isa = PBXFileReference; path = "TrackBar-Prefix.pch"; sourceTree = "<group>"; };
+		FA53032614FDA78E008C70A9 /* TrackBar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackBar-Prefix.pch"; sourceTree = "<group>"; };
 		FA53032814FDA78E008C70A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		FA53032A14FDA78E008C70A9 /* ANAppDelegate.h */ = {isa = PBXFileReference; path = ANAppDelegate.h; sourceTree = "<group>"; };
+		FA53032A14FDA78E008C70A9 /* ANAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		FA53032B14FDA78E008C70A9 /* ANAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
 		FA53032E14FDA78E008C70A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FA53033514FDA7CD008C70A9 /* ANTrackBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTrackBar.h; sourceTree = "<group>"; };
+		FA53033614FDA7CD008C70A9 /* ANTrackBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTrackBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 			children = (
 				FA53032A14FDA78E008C70A9 /* ANAppDelegate.h */,
 				FA53032B14FDA78E008C70A9 /* ANAppDelegate.m */,
+				FA53033514FDA7CD008C70A9 /* ANTrackBar.h */,
+				FA53033614FDA7CD008C70A9 /* ANTrackBar.m */,
 				FA53032D14FDA78E008C70A9 /* MainMenu.xib */,
 				FA53031F14FDA78D008C70A9 /* Supporting Files */,
 			);
@@ -167,6 +172,7 @@
 			files = (
 				FA53032514FDA78E008C70A9 /* main.m in Sources */,
 				FA53032C14FDA78E008C70A9 /* ANAppDelegate.m in Sources */,
+				FA53033714FDA7CD008C70A9 /* ANTrackBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

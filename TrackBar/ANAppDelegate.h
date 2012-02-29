@@ -7,9 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ANTrackBar.h"
 
-@interface ANAppDelegate : NSObject <NSApplicationDelegate>
+@interface ANAppDelegate : NSObject <NSApplicationDelegate> {
+    ANTrackBar * trackBar;
+    NSTextField * valueLabel;
+}
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow * window;
+
+- (IBAction)barValueChanged:(id)sender;
 
 @end
