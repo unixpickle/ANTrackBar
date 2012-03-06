@@ -15,4 +15,6 @@
     BOOL isPressed;
 }
 
+@property (readwrite) float value;
+
 @end
