@@ -61,7 +61,7 @@
 - (void)mouseDown:(NSEvent *)theEvent {
     isPressed = YES;
     NSPoint location = [theEvent locationInWindow];
-    [self setDoubleValue:[self valueForPoint:location]];
+    [self setValue:[self valueForPoint:location]];
     
     id obj = self;
     
