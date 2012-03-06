@@ -167,6 +167,10 @@
     CGContextAddPath(context, diamondPath);
     CGContextFillPath(context);
     
+#if !__has_feature(objc_arc)
+    [shadow release];
+#endif
+    
     [[NSGraphicsContext currentContext] restoreGraphicsState];
     CGPathRelease(diamondPath);
 }
