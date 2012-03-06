@@ -29,22 +29,9 @@
 
 @implementation ANTrackBar
 
-@synthesize target=_target;
-@synthesize action=_action;
-
-- (float)value {
-    return value;
-}
-
-- (void)setValue:(float)aValue {
-    value = aValue;
-    [self setNeedsDisplay:YES];
-}
-
 - (id)initWithFrame:(NSRect)frame {
     frame.size.height = kTrackBarHeight;
     if ((self = [super initWithFrame:frame])) {
-        value = 0;
     }
     return self;
 }
@@ -53,12 +40,16 @@
     return YES;
 }
 
+- (NSCell *)cell {
+    return nil;
+}
+
 #pragma mark - Mouse Events -
 
 - (void)mouseDown:(NSEvent *)theEvent {
     isPressed = YES;
     NSPoint location = [theEvent locationInWindow];
-    [self setValue:[self valueForPoint:location]];
+    [self setDoubleValue:[self valueForPoint:location]];
     
     id obj = self;
     
@@ -72,7 +63,7 @@
 
 - (void)mouseDragged:(NSEvent *)theEvent {
     NSPoint location = [theEvent locationInWindow];
-    [self setValue:[self valueForPoint:location]];
+    [self setDoubleValue:[self valueForPoint:location]];
 
     id obj = self;
 
@@ -226,7 +217,7 @@
     CGRect frame = self.bounds;
     frame.origin.x += 1;
     frame.origin.y += 1;
-    frame.size.width = round((kTrackBarButtonSize / 2) + (usableWidth * value));
+    frame.size.width = round((kTrackBarButtonSize / 2) + (usableWidth * self.doubleValue));
     frame.size.height -= 3;
     CGFloat minX = CGRectGetMinX(frame), maxX = CGRectGetMaxX(frame);
     CGFloat minY = CGRectGetMinY(frame), maxY = CGRectGetMaxY(frame);
@@ -245,7 +236,7 @@
 
 - (CGPathRef)pathForPositionMarker {
     CGFloat usableWidth = self.frame.size.width - kTrackBarButtonSize - 2 - 0.5;
-    CGFloat center = round(((CGFloat)kTrackBarButtonSize / 2.0) + 1 + (usableWidth * value));
+    CGFloat center = round(((CGFloat)kTrackBarButtonSize / 2.0) + 1 + (usableWidth * self.doubleValue));
     CGFloat yspot = floor(self.frame.size.height / 2.0);
 
     CGMutablePathRef path = CGPathCreateMutable();

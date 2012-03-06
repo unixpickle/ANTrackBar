@@ -11,13 +11,8 @@
 #define kTrackBarHeight 14
 #define kTrackBarButtonSize 11
 
-@interface ANTrackBar : NSView {
-    float value;
+@interface ANTrackBar : NSSlider {
     BOOL isPressed;
 }
-
-@property (nonatomic, weak) __weak NSObject * target;
-@property (readwrite) SEL action;
-@property (readwrite) float value;
 
 @end

@@ -25,7 +25,7 @@
     
     trackBar = [[ANTrackBar alloc] initWithFrame:NSMakeRect(10, height - 10 - kTrackBarHeight,
                                                             width - 65, kTrackBarHeight)];
-    [trackBar setValue:0.5];
+    [trackBar setDoubleValue:0.5];
     [trackBar setTarget:self];
     [trackBar setAction:@selector(barValueChanged:)];
     
@@ -34,7 +34,7 @@
 }
 
 - (IBAction)barValueChanged:(id)sender {
-    NSString * value = [NSString stringWithFormat:@"%.2f", [trackBar value]];
+    NSString * value = [NSString stringWithFormat:@"%.2f", [trackBar doubleValue]];
     [valueLabel setStringValue:value];
 }
 
