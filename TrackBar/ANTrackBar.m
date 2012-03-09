@@ -156,9 +156,16 @@
     CGContextClosePath(context);
     CGContextClip(context);
     
-    CGPoint startPoint = CGPointMake(0, 1);
+    CGPoint startPoint = CGPointMake(0, 2);
     CGPoint endPoint = CGPointMake(0, self.frame.size.height - 2);    
     CGContextDrawLinearGradient(context, coveredGrad, startPoint, endPoint, 0);
+    
+    CGContextSetGrayStrokeColor(context, 0.949, 1.0f);
+    CGContextSetLineWidth(context, 1);
+    CGContextBeginPath(context);
+    CGContextMoveToPoint(context, 0, 1.5);
+    CGContextAddLineToPoint(context, self.frame.size.width, 1.5);
+    CGContextStrokePath(context);
     
     CGContextRestoreGState(context);
     
@@ -299,19 +306,19 @@
 }
 
 - (CGGradientRef)uncoveredGradient {
-    const CGFloat uncoveredGradient[] = {0.5176f, 1.0f, 0.647f, 1.0f};
-    const CGFloat locations[] = {0, 1};
+    const CGFloat uncoveredGradient[] = {0.5176f, 1.0f, 0.592, 1.0f, 0.647f, 1.0f};
+    const CGFloat locations[] = {0, 0.5, 1};
     CGColorSpaceRef gray = CGColorSpaceCreateDeviceGray();
-    CGGradientRef gradient = CGGradientCreateWithColorComponents(gray, uncoveredGradient, locations, 2);
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(gray, uncoveredGradient, locations, 3);
     CGColorSpaceRelease(gray);
     return gradient;
 }
 
 - (CGGradientRef)coveredGradient {
-    const CGFloat coveredGradient[] = {0.86666, 1.0f, 0.741f, 1.0f};
-    const CGFloat locations[] = {0, 1};
+    const CGFloat coveredGradient[] = {0.86666, 1.0f, 0.803, 1.0f, 0.741f, 1.0f};
+    const CGFloat locations[] = {0, 0.5, 1};
     CGColorSpaceRef gray = CGColorSpaceCreateDeviceGray();
-    CGGradientRef gradient = CGGradientCreateWithColorComponents(gray, coveredGradient, locations, 2);
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(gray, coveredGradient, locations, 3);
     CGColorSpaceRelease(gray);
     return gradient;
 }
