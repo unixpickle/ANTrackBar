@@ -23,6 +23,7 @@
 - (void)drawUncovered:(CGContextRef)context;
 - (void)drawCovered:(CGContextRef)context;
 - (void)drawPositionMarker:(CGContextRef)context;
+- (void)drawLightBorder:(CGContextRef)context;
 - (void)drawBorder:(CGContextRef)context;
 
 @end
@@ -116,6 +117,7 @@
 - (void)drawRect:(NSRect)dirtyRect {
     CGContextRef context = (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
     
+    [self drawLightBorder:context];
     [self drawUncovered:context];
     [self drawCovered:context];
     [self drawPositionMarker:context];
@@ -187,19 +189,29 @@
     CGPathRelease(diamondPath);
 }
 
-- (void)drawBorder:(CGContextRef)context {
-    CGPoint points[2] = {CGPointMake(1, self.frame.size.height - 0.5),
-        CGPointMake(self.frame.size.width - 2, self.frame.size.height - 0.5)};
+- (void)drawLightBorder:(CGContextRef)context {
     CGPathRef borderPath = [self pathForBorder];
+    CGContextSetLineWidth(context, 1);
+    
+    CGContextSaveGState(context);
+    CGContextSetGrayStrokeColor(context, 0.85, 1);
+    CGContextBeginPath(context);
+    CGContextTranslateCTM(context, 0, 1);
+    CGContextAddPath(context, borderPath);
+    CGContextStrokePath(context);
+    CGContextRestoreGState(context);
+    
+    CGPathRelease(borderPath);
+}
+
+- (void)drawBorder:(CGContextRef)context {
+    CGPathRef borderPath = [self pathForBorder];
+    CGContextSetLineWidth(context, 1);
     
     CGContextSetGrayStrokeColor(context, 0.435, 1);
-    CGContextSetLineWidth(context, 1);
     CGContextBeginPath(context);
     CGContextAddPath(context, borderPath);
     CGContextStrokePath(context);
-    
-    CGContextSetGrayStrokeColor(context, 1, 1);
-    CGContextStrokeLineSegments(context, points, 2);
     
     CGPathRelease(borderPath);
 }
@@ -214,7 +226,7 @@
     frame.size.height -= 3;
     CGFloat minX = CGRectGetMinX(frame), maxX = CGRectGetMaxX(frame);
     CGFloat minY = CGRectGetMinY(frame), maxY = CGRectGetMaxY(frame);
-    CGFloat radius = 1;
+    CGFloat radius = kTrackBarRadius;
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, minX + radius, minY);
@@ -237,7 +249,7 @@
     frame.size.height -= 3;
     CGFloat minX = CGRectGetMinX(frame), maxX = CGRectGetMaxX(frame);
     CGFloat minY = CGRectGetMinY(frame), maxY = CGRectGetMaxY(frame);
-    CGFloat radius = 1;
+    CGFloat radius = kTrackBarRadius;
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, minX + radius, minY);
@@ -273,7 +285,7 @@
     frame.origin.y += 0.5;
     CGFloat minX = CGRectGetMinX(frame), maxX = CGRectGetMaxX(frame);
     CGFloat minY = CGRectGetMinY(frame), maxY = CGRectGetMaxY(frame);
-    CGFloat radius = 2;
+    CGFloat radius = kTrackBarRadius + 1;
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, minX + radius, minY);

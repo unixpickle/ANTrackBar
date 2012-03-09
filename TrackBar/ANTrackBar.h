@@ -10,6 +10,7 @@
 
 #define kTrackBarHeight 14
 #define kTrackBarButtonSize 11
+#define kTrackBarRadius 1.5
 
 @interface ANTrackBar : NSSlider {
     BOOL isPressed;
