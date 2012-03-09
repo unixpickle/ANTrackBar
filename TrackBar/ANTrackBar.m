@@ -119,8 +119,8 @@
     
     [self drawLightBorder:context];
     [self drawUncovered:context];
-    [self drawCovered:context];
-    [self drawPositionMarker:context];
+    if ([self isEnabled]) [self drawCovered:context];
+    if ([self isEnabled]) [self drawPositionMarker:context];
     [self drawBorder:context];
 }
 
